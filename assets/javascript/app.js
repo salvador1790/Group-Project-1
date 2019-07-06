@@ -45,5 +45,30 @@ $("#add-member-btn").on("click", function (event) {
 
 });
 
+$(".add-to-library").on("click", function (event) {
+  event.preventDefault();
+
+ console.log(this);
+ var title = this.title;
+ var author = this.getAttribute('author');
+ var publishDate = this.getAttribute('publishDate');
+ var imgURL = this.getAttribute('imgURL');
+
+
+  // Creates local object
+  var newBook = {
+    title,
+    author,
+    publishDate,
+    imgURL
+  };
+  console.log(newBook);
+  // Uploads member data to Firebase
+  database.ref("books").push(newBook);
+
+  alert("Book successfully added");
+
+});
+
 
 
