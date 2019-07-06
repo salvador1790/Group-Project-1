@@ -15,26 +15,36 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>bOOkshlf</title>
+    <title>Add a Book</title>
 </head>
 
 <body>
+    <!-- Member Tracker -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="text-center">
-                    <img src="https://s3.amazonaws.com/putmeinthestory/images/blog/graphics/Isabella-at-the-library.png"
-                        class="img-fluid" alt="Responsive image">
-                    <p>
-                        <a href="./profile.html">Create a Profile</a>
-                    </p>
-                    <p>
-                        <a href="./bookAdd.html">Add Books</a>
-                    </p>
+                <!-- Create Profile  -->
+                <div class="card mb-4">
+                    <div class="card-header">Add Books</div>
+                    <div class="card-body">
+
+                        <!-- Entry Form -->
+                        <form>
+                                <div class="form-group">
+                                        <label for="member-zip-input">Book Title</label>
+                                        <input class="form-control" id="member-zip-input" 
+                                            type="text">
+                                    </div>
+
+                            <button class="btn btn-primary float-left" id="search-books-btn">Search</button>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
 
+<script src="./assets/javascript/app.js"></script>
 </html>
