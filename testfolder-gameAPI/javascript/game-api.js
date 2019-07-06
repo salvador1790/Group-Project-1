@@ -30,7 +30,6 @@ $("#button-addon2").on("click", function () {
                 div.append(title);
                 div.append(img);
                 div.on("click", function () {
-                    prompt("Select system:")
                 })
             }
         }
