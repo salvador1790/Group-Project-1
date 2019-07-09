@@ -13,6 +13,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
+var auth = firebase.auth();  
 
 //TEST BUTTON OUTSIDE OF TABLE
 //var myButton = '<button class="check-out" title="Frozen" >Check Out</button>';
@@ -26,6 +27,7 @@ $("#add-member-btn").on("click", function (event) {
   // Get data from UI
   var name = $("#member-name-input").val().trim();
   var email = $("#member-email-input").val().trim();
+  var password = $("#member-password-input").val().trim();
   var phone = $("#member-phone-input").val().trim();
   var street = $("#member-street-input").val().trim();
   var city = $("#member-city-input").val().trim();
@@ -42,6 +44,18 @@ $("#add-member-btn").on("click", function (event) {
     state,
     zip
   };
+
+////////////////////
+
+firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+      // ...
+    });
+///////////////
 
   // Uploads member data to Firebase
   database.ref("users").push(newMember);
@@ -121,6 +135,3 @@ $(".check-out").on("click", function () {
 
 // Close for document.ready
 });
-
-
-
