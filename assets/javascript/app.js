@@ -56,9 +56,12 @@ database.ref("allBooks").on("value", function (dbBooks) {
   allBooks.forEach(function (book, i) {
     
     //create HTML for image
-    var myImage = '<td><img src="' + book.imgURL + '" height="100px" alt=""></td>'
+    var myImage = '<td><img src="' + book.imgURL + '" height="100px" alt=""></td>';
     //create HTML for button
-    var checkOutButton = '<td><button class="check-out" title="Frozen" >Check Out</button></td>'
+    //var checkOutButton = '<td><button class="check-out" title="Frozen" >Check Out</button></td>'
+    var buttonId = 'check-out' + i;
+    var checkOutButton = '<td><button id="' + buttonId + '" title="Frozen" >Check Out</button></td>'
+    var buttonIdWithHash = '#' + buttonId;
 
     // Create the new row
     var newRow = $("<tr>").append(
@@ -69,8 +72,13 @@ database.ref("allBooks").on("value", function (dbBooks) {
       $(checkOutButton),
     );
     $("#books-table > tbody").append(newRow);
+    $(buttonIdWithHash).on("click", function () {
+      event.preventDefault();
+      console.log("checkout button pushed " + buttonId);
+      alert("Checkout button clicked " +buttonId);
+    
   });
-
+});
 });
 
 
@@ -105,7 +113,7 @@ $(".add-to-library").on("click", function (event) {
 });
 
 $(".check-out").on("click", function () {
-  //event.preventDefault();
+  event.preventDefault();
   console.log("checkout button pushed");
   alert("Checkout button clicked");
 
