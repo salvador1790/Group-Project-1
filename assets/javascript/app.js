@@ -1,4 +1,4 @@
-$(document).ready(function() {
+//$(document).ready(function() {
 //Initialize Firebase
 var firebaseConfig = {
   apiKey: "AIzaSyA4RlrYXgKvMYzZQj8p9Ls9s6YZB9mAfXA",
@@ -133,5 +133,51 @@ $(".check-out").on("click", function () {
 
 });
 
-// Close for document.ready
+
+
+// Login Button
+$("#login-btn").on("click", function (event) {
+  console.log("login button clicked");
+  event.preventDefault();
+
+  var email = $("#login-email-input").val().trim();
+  var password = $("#login-password-input").val().trim();
+  console.log(email);
+  console.log(password);
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+ 
+  });
+  
 });
+});
+
+// Log Out Button
+$("#log-out-button").on("click", function (event) {
+  event.preventDefault();
+  console.log("log out button pressed");
+  auth.signOut().then(function() {
+    console.log("Sign-out successful")
+ }).catch(function(error) {
+   console.log("Error logging out");
+ });
+});
+//Alert user when logged in or out
+auth.onAuthStateChanged(function (user) {
+  console.log("user state has changed")
+  console.log(user);
+        if (user) {
+            // User is signed in.
+            alert("You have signed in.");
+            //window.location.href = './index.html';
+        } 
+        else {
+            // User is signed out.
+            alert("You have signed out.");
+        }
+//Close for document.ready
+//});
