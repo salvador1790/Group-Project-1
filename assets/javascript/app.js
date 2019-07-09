@@ -1,3 +1,4 @@
+$(document).ready(function() {
 //Initialize Firebase
 var firebaseConfig = {
   apiKey: "AIzaSyA4RlrYXgKvMYzZQj8p9Ls9s6YZB9mAfXA",
@@ -13,8 +14,12 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+//TEST BUTTON OUTSIDE OF TABLE
+//var myButton = '<button class="check-out" title="Frozen" >Check Out</button>';
+//document.append(myButton);
+//$(checkOutButton);
 
-//Create Profile Button
+//Create Profile Button click
 $("#add-member-btn").on("click", function (event) {
   event.preventDefault();
 
@@ -47,27 +52,26 @@ $("#add-member-btn").on("click", function (event) {
 
 //Populate the library from Firebase
 database.ref("allBooks").on("value", function (dbBooks) {
-  console.log(dbBooks.val());
   allBooks = dbBooks.val();
   allBooks.forEach(function (book, i) {
     
     //create HTML for image
     var myImage = '<td><img src="' + book.imgURL + '" height="100px" alt=""></td>'
+    //create HTML for button
+    var checkOutButton = '<td><button class="check-out" title="Frozen" >Check Out</button></td>'
+
     // Create the new row
     var newRow = $("<tr>").append(
       $(myImage),
       $("<td>").text(book.title),
       $("<td>").text(book.author),
       $("<td>").text(book.publishDate),
+      $(checkOutButton),
     );
-
-
     $("#books-table > tbody").append(newRow);
   });
 
 });
-
-
 
 
 //Button that adds books to library
@@ -100,7 +104,15 @@ $(".add-to-library").on("click", function (event) {
 
 });
 
+$(".check-out").on("click", function () {
+  //event.preventDefault();
+  console.log("checkout button pushed");
+  alert("Checkout button clicked");
 
+});
+
+// Close for document.ready
+});
 
 
 
