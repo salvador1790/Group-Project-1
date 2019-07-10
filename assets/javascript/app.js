@@ -154,7 +154,7 @@ $("#login-btn").on("click", function (event) {
   });
   
 });
-});
+// });
 
 // Log Out Button
 $("#log-out-button").on("click", function (event) {
@@ -179,5 +179,5 @@ auth.onAuthStateChanged(function (user) {
             // User is signed out.
             alert("You have signed out.");
         }
-//Close for document.ready
-//});
+// Close for document.ready
+});
