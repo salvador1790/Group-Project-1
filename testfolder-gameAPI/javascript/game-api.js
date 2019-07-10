@@ -29,9 +29,11 @@ $("#button-addon2").on("click", function () {
                 $('#game-goes-here').append(div)
                 div.append(title);
                 div.append(img);
-                div.on("click", function () {
-                })
+                
             }
+            div.on("click", function () {
+                console.log("this-works")
+            })
         }
     });
 })
