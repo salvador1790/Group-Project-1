@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./addBook.css">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="./addBook.js"></script>
+</head>
+<body>
+    <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #02004e;">
+                    <a class="navbar-brand" href="./index.html">b00kshlf</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./allBooks.html">Library <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./addBook.html">Add Book <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./profile.html">Add Profile <span class="sr-only">(current)</span></a>
+                            </li>
+                    </ul></div>
+                </nav>
+        <div id="banner">
+        <p>1.Search for the books you own.</p>
+        <p>2.Click on book that you have to add it to your owned books.</p>
+    </div>
+    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Title" aria-label="Search">
+    <input id="searchAuthor" class="form-control mr-sm-2" type="search" placeholder="Author" aria-label="Search">
+        <input onclick="submitBook()" class="btn btn-primary" type="submit" value="Submit">
+    </div>
+    <div id="booksContainer" class="container">
+    <div id="booksView">
+        
+    </div>
+</div>
+</body>
+</html>

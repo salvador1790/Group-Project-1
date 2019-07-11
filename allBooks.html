@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <title>Add a Book</title>
+</head>
+
+<body>
+    <!-- Add Books -->
+    <div class="container">
+
+
+        <div class="row" id="NavBar">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #02004e;">
+                    <a class="navbar-brand" href="./index.html">Home</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Library
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="./allBooks.html">Books</a>
+                                    <a class="dropdown-item" href="./allGames.html">Games</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./bookAdd.html">Add Book <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./gameAdd.html">Add Game <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./profile.html">Add Profile <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="row" id="libraryOfBooksRow">
+            <div class="col-md-12">
+
+                <!-- Library of Books-->
+                <div class="card mb-4">
+                    <div class="card-header">Library of Books *FIRST TWO BOOKS ARE HARD CODED. THE REST COME FROM
+                        FIREBASE</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='books-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Publish Date</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td>
+                                        <img src="./assets/images/Frozen.png" height="100px" alt="">
+                                    </td>
+                                    <td>Frozen</td>
+                                    <td>Victoria Saxson</td>
+                                    <td>09/19/2016</td>
+                                    <td>
+                                        <button class="check-out" title="Frozen" author="Victoria Saxson"
+                                            publishDate="09/19/2016" imgURL="./assets/images/Frozen.png">Check
+                                            Out</button>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/images/The Story of Elsa and Anna.png" height="100px" alt="">
+                                    </td>
+                                    <td>Frozen: The Story of Elsa and Anna</td>
+                                    <td>The Disney Book Group</td>
+                                    <td>05/21/2018</td>
+                                    <td>
+                                        <button class="check-out" title="Frozen:  The Story of Elsa and Anna"
+                                            author="The Disney Book Group"
+                                            imgURL="./assets/images/The Story of Elsa and Anna.png"
+                                            publishDate="05/21/2018">Check Out</button>
+                                    </td>
+
+                                </tr> -->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+<script src="./assets/javascript/app.js"></script>
+
+</html>
