@@ -15,6 +15,8 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
     <title>Add a Book</title>
 </head>
@@ -27,7 +29,7 @@
         <div class="row" id="NavBar">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #02004e;">
-                    <a class="navbar-brand" href="./index.html">Home</a>
+                    <a class="navbar-brand" href="./index.html">b00kshlf</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -64,63 +66,11 @@
 
             </div>
         </div>
-        <div class="row" id="libraryOfBooksRow">
-            <div class="col-md-12">
+        <div id="booksContainer" class="container">
+            <div id="booksView" class="bookLibrary">
 
-                <!-- Library of Books-->
-                <div class="card mb-4">
-                    <div class="card-header">Library of Books *FIRST TWO BOOKS ARE HARD CODED. THE REST COME FROM
-                        FIREBASE</div>
-                    <div class="card-body">
-                        <table class="table table-sm table-hover" id='books-table'>
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Publish Date</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- <tr>
-                                    <td>
-                                        <img src="./assets/images/Frozen.png" height="100px" alt="">
-                                    </td>
-                                    <td>Frozen</td>
-                                    <td>Victoria Saxson</td>
-                                    <td>09/19/2016</td>
-                                    <td>
-                                        <button class="check-out" title="Frozen" author="Victoria Saxson"
-                                            publishDate="09/19/2016" imgURL="./assets/images/Frozen.png">Check
-                                            Out</button>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="./assets/images/The Story of Elsa and Anna.png" height="100px" alt="">
-                                    </td>
-                                    <td>Frozen: The Story of Elsa and Anna</td>
-                                    <td>The Disney Book Group</td>
-                                    <td>05/21/2018</td>
-                                    <td>
-                                        <button class="check-out" title="Frozen:  The Story of Elsa and Anna"
-                                            author="The Disney Book Group"
-                                            imgURL="./assets/images/The Story of Elsa and Anna.png"
-                                            publishDate="05/21/2018">Check Out</button>
-                                    </td>
-
-                                </tr> -->
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
-    </div>
 </body>
 
 <script src="./assets/javascript/app.js"></script>
