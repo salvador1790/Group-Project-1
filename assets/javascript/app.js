@@ -13,54 +13,37 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
-var auth = firebase.auth();  
-
-//TEST BUTTON OUTSIDE OF TABLE
-//var myButton = '<button class="check-out" title="Frozen" >Check Out</button>';
-//document.append(myButton);
-//$(checkOutButton);
+var auth = firebase.auth();
 
 //Create Profile Button click
 $("#add-member-btn").on("click", function (event) {
   event.preventDefault();
-
+  var currentUser = firebase.auth().currentUser.uid
+  
   // Get data from UI
   var name = $("#member-name-input").val().trim();
-  var email = $("#member-email-input").val().trim();
-  var password = $("#member-password-input").val().trim();
   var phone = $("#member-phone-input").val().trim();
   var street = $("#member-street-input").val().trim();
   var city = $("#member-city-input").val().trim();
   var state = $("#member-state-input").val().trim();
   var zip = $("#member-zip-input").val().trim();
 
-  // Creates local object
-  var newMember = {
-    name,
-    email,
-    phone,
-    street,
-    city,
-    state,
-    zip
-  };
 
-////////////////////
+  // Uploads profile data to Firebase
 
-firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-      // ...
-    });
-///////////////
+  var usersRef = database.ref("profiles");
+  var currentUser = firebase.auth().currentUser.uid
 
-  // Uploads member data to Firebase
-  database.ref("users").push(newMember);
-
-  alert("Profile successfully added");
+  usersRef.set({
+    [currentUser]: {
+      name,
+      phone,
+      street,
+      city,
+      state,
+      zip
+    },
+  });
 
 });
 
@@ -68,7 +51,7 @@ firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (
 database.ref("allBooks").on("value", function (dbBooks) {
   allBooks = dbBooks.val();
   allBooks.forEach(function (book, i) {
-    
+
     //create HTML for image
     var myImage = '<td><img src="' + book.imgURL + '" height="100px" alt=""></td>';
     //create HTML for button
@@ -89,10 +72,10 @@ database.ref("allBooks").on("value", function (dbBooks) {
     $(buttonIdWithHash).on("click", function () {
       event.preventDefault();
       console.log("checkout button pushed " + buttonId);
-      alert("Checkout button clicked " +buttonId);
-    
+      alert("Checkout button clicked " + buttonId);
+
+    });
   });
-});
 });
 
 
@@ -145,14 +128,14 @@ $("#login-btn").on("click", function (event) {
   console.log(email);
   console.log(password);
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
- 
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+
   });
-  
+  console.log('Your UserId is:  ' + firebase.auth().currentUser.uid);
 });
 // });
 
@@ -160,24 +143,45 @@ $("#login-btn").on("click", function (event) {
 $("#log-out-button").on("click", function (event) {
   event.preventDefault();
   console.log("log out button pressed");
-  auth.signOut().then(function() {
+  auth.signOut().then(function () {
     console.log("Sign-out successful")
- }).catch(function(error) {
-   console.log("Error logging out");
- });
+  }).catch(function (error) {
+    console.log("Error logging out");
+  });
 });
 //Alert user when logged in or out
 auth.onAuthStateChanged(function (user) {
   console.log("user state has changed")
   console.log(user);
-        if (user) {
-            // User is signed in.
-            alert("You have signed in.");
-            //window.location.href = './index.html';
-        } 
-        else {
-            // User is signed out.
-            alert("You have signed out.");
-        }
-// Close for document.ready
+  if (user) {
+    // User is signed in.
+    alert("You have signed in.");
+    //window.location.href = './index.html';
+
+    //load profile from Firebase///////////////////////
+    var currentUser = firebase.auth().currentUser.uid
+    //database.ref("profiles" / currentUser).on("value", function (profile) {
+  database.ref("profiles/" + currentUser).on("value", function (profile) {
+      myProfile = profile.val();
+      $("#member-name-input").val(myProfile.name);
+      $("#member-phone-input").val(myProfile.phone);
+      $("#member-street-input").val(myProfile.street);
+      $("#member-city-input").val(myProfile.city);
+      $("#member-state-input").val(myProfile.state);
+      $("#member-zip-input").val(myProfile.zip);
+    });
+
+
+    //end load profile from firebase////////////////////
+
+
+  }
+  else {
+    // User is signed out.
+    alert("You have signed out.");
+  }
+  // Close for document.ready
 });
+
+
+
