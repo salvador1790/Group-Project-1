@@ -68,59 +68,52 @@ database.ref("allBooks").on("value", function (dbBooks) {
   allBooks = dbBooks.val();
   allBooks.forEach(function (book, i) {
 
-    //create HTML for image
-    var myImage = '<td><img src="' + book.imgURL + '" height="100px" alt=""></td>';
-    //create HTML for button
-    //var checkOutButton = '<td><button class="check-out" title="Frozen" >Check Out</button></td>'
-    var buttonId = 'check-out' + i;
-    var checkOutButton = '<td><button id="' + buttonId + '" title="Frozen" >Check Out</button></td>'
-    var buttonIdWithHash = '#' + buttonId;
+    var p = $("<p>");
+    var img = $("<img>");
+    var div = $("<div>");
+    var pDiv = $("<div>");
+    var buttonId = 'check-out ' + i;
+    console.log(buttonId);
+    p.html(book.title);
+    img.attr("src", book.imgURL);
+    img.attr("class", "bookImg")
+    div.attr("class", "cards")
+    pDiv.attr("class", "paragraphDiv");
+    // checkOutButton.attr("title", book.title)
+    // checkOutButton.addClass("addBookBtn");
+    // checkOutButton.text("Add Book");
+    // checkOutButton.attr("data-type", buttonIdWithHash);
 
-    // Create the new row
-    var newRow = $("<tr>").append(
-      $(myImage),
-      $("<td>").text(book.title),
-      $("<td>").text(book.author),
-      $("<td>").text(book.publishDate),
-      $(checkOutButton),
-    );
-    $("#books-table > tbody").append(newRow);
-    $(buttonIdWithHash).on("click", function () {
-      event.preventDefault();
-      console.log("checkout button pushed " + buttonId);
-      alert("Checkout button clicked " + buttonId);
+    pDiv.append(p);
+    div.append(pDiv);
+    div.append(img);
+    // div.append(button);
 
-    });
+    $(".bookLibrary").append(div);
   });
 });
 
-database.ref("allBooks").on("value", function (dbBooks) {
-  allBooks = dbBooks.val();
-  allBooks.forEach(function (book, i) {
+database.ref("allGames").on("value", function (dbGames) {
+  allGames = dbGames.val();
+  allGames.forEach(function (game, i) {
 
-    //create HTML for image
-    var myImage = '<td><img src="' + book.imgURL + '" height="100px" alt=""></td>';
-    //create HTML for button
-    //var checkOutButton = '<td><button class="check-out" title="Frozen" >Check Out</button></td>'
-    var buttonId = 'check-out' + i;
-    var checkOutButton = '<td><button id="' + buttonId + '" title="Frozen" >Check Out</button></td>'
-    var buttonIdWithHash = '#' + buttonId;
+    var p = $("<p>");
+    var img = $("<img>");
+    var div = $("<div>");
+    var pDiv = $("<div>");
+    var buttonId = 'check-out ' + i;
+    console.log(buttonId);
+    p.html(game.title);
+    img.attr("src", game.imgURL);
+    img.attr("class", "bookImg")
+    div.attr("class", "cards")
+    pDiv.attr("class", "paragraphDiv");
+    pDiv.append(p);
+    div.append(pDiv);
+    div.append(img);
 
-    // Create the new row
-    var newRow = $("<tr>").append(
-      $(myImage),
-      $("<td>").text(book.title),
-      $("<td>").text(book.author),
-      $("<td>").text(book.publishDate),
-      $(checkOutButton),
-    );
-    $("#books-table > tbody").append(newRow);
-    $(buttonIdWithHash).on("click", function () {
-      event.preventDefault();
-      console.log("checkout button pushed " + buttonId);
-      alert("Checkout button clicked " + buttonId);
+    $(".gameLibrary").append(div);
 
-    });
   });
 });
 
@@ -213,7 +206,7 @@ auth.onAuthStateChanged(function (user) {
 });
 
 //Button to add games to Game library
-$("#submit-button").on("click", function () {
+function submitGame() {
   var game = $("#search-bar").val();
   console.log(game);
   var gameURL = "http://www.giantbomb.com/api/search/?api_key=b8881ebfa9a606ad4cc84a57b36a2b769c202a57&format=json&query=" + game + "&resources=game&limit=30";
@@ -272,15 +265,16 @@ $("#submit-button").on("click", function () {
 
         allGames.push(newGame);
 
-        // Uploads member data to Firebase
-        database.ref("allGames").set(allGames);
+        // // Uploads member data to Firebase
+        // database.ref("allGames").set(allGames);
 
-        alert("Game successfully added");
+        // alert("Game successfully added");
 
       });
     }
   });
-});
+}
+
 
 //Button to add book to Book library
 function submitBook() {
