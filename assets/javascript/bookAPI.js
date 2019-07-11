@@ -1,7 +1,7 @@
 function submitBook() {
     var bookName = $("#search").val();
     var authorName = $("#searchAuthor").val();
-    var BookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + bookName + "&maxResults=40";
+    var BookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + bookName + "&maxResults=30";
 
     $.ajax({
         url: BookUrl,
