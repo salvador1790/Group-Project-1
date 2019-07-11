@@ -23,11 +23,11 @@ function submitBook() {
             var button = $("<button>");
 
             p.html(response.items[i].volumeInfo.title);
-            img.attr("src", response.items[i].volumeInfo.imageLinks.smallThumbnail);
+            img.attr("src", response.items[i].volumeInfo.imageLinks.thumbnail);
             img.attr("class", "bookImg")
             div.attr("class", "cards")
             pDiv.attr("class","paragraphDiv");
-            button.attr("class", "addBookBtn");
+            button.addClass("addBookBtn");
             button.text("Add Book");
             button.attr("data-type", response.items[i].id);
             $('#booksView').append(div)
@@ -37,10 +37,10 @@ function submitBook() {
             div.append(button);
 
         }
-        $(".addBookBtn").on("click", function(){
-            console.log($(this).attr("data-type"))
-            alert("Book Added")
-        })
+        // $(".addBookBtn").on("click", function(){
+        //     console.log($(this).attr("data-type"))
+        //     alert("Book Added")
+        // })
     })
 
    

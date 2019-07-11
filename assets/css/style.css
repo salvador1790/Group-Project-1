@@ -58,7 +58,7 @@
 #banner{
     background-color: #DCDCDC;
 }
-.addBookBtn{
+.addBookBtn, .addGameBtn{
     position: relative;
     left: 50px;
     bottom: 20px;
