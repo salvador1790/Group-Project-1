@@ -1,0 +1,78 @@
+#avatar{
+    color: #FFBD33;
+    font-family: 'Russo One', sans-serif;
+    text-shadow: 3px 3px 6px red;
+   text-align: center;
+   font-size: 50px;
+   margin-top: 40px;
+}
+h1{
+    margin-top: 0px;
+    margin-bottom: 35px;
+    color: white;
+    font-family: sans-serif; 
+    text-align: center;
+}
+.container {
+    background: black;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    opacity: .85;
+    border-radius: 5px;
+    padding: 20px;
+    width: 500px;
+    margin-top: 40px;
+    
+}
+.container input[type = 'text'], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 380px;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 9px;
+    margin-bottom: 15px;
+}
+
+.control-label{
+ font-size: 19px;
+ color: white;
+ font-family: sans-serif;
+ font-weight: bold;
+}
+
+.help-block{
+    font-size: 10px;
+    color: white;
+    font-family: sans-serif;
+}
+
+#sign-up-btn{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: blue;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+    width:150px;
+    text-align: center
+    
+
+}
+
+#sign-up-btn:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+    
+}
