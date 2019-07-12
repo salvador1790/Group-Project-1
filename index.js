@@ -29,3 +29,5 @@ $("#logout-btn").on("click", function (event) {
         
     });
 });
+
+console.log(firebase.auth().currentUser);
