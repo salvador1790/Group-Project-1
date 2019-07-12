@@ -53,7 +53,7 @@ database.ref("GameLibrary").on("value", function (dbGames) {
 function submitGame() {
     var game = $("#search-bar").val();
     console.log(game);
-    var gameURL = "http://www.giantbomb.com/api/search/?api_key=b8881ebfa9a606ad4cc84a57b36a2b769c202a57&format=json&query=" + game + "&resources=game&limit=30";
+    var gameURL = "https://www.giantbomb.com/api/search/?api_key=b8881ebfa9a606ad4cc84a57b36a2b769c202a57&format=json&query=" + game + "&resources=game&limit=30";
   
     $.ajax({
       url: gameURL,
