@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./login/style.css">
-    <body background="./login/bkshlf.jpg" style="background-repeat:no-repeat; background-position:center; background-attachment: fixed; "></body>
-    
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
 </head>
+
 <body>
-        <h1 class="avatar">bOOkshlf</h1>
-                      <div class="loginbox">
-                          
-                          <h1>Login Here</h1>
-                          <form action="">
-                              <p>Email Address</p>
-                              <input type="text" name="" placeholder="Enter Email Address">
-                              <p>Password</p>
-                              <input type="password" name=""placeholder="Enter Password">
-                              <input type="submit" name="" value="Login"> 
-                              
-                          </form>
+    <h1 class="avatar">bOOkshlf</h1>
+    <div class="loginbox">
 
+        <h1>Login Here</h1>
+        <form action="">
+            <p>Email Address</p>
+            <input type="text" name="" placeholder="Enter Email Address" id="email">
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password" id="password">
+            <p id="error-alert"></p>
+            <input type="submit" name="" value="Login" id="login-btn">
+            <a href="./reg.html">Don't have an account? Sign up now!</a>
 
-                      </div>
-                      <script src="./login.js"></script>
+        </form>
+    </div>
+    <script src="./login.js"></script>
 </body>
+
 </html>

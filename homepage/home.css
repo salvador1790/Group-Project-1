@@ -1,22 +1,22 @@
 body{
-     
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: right top;
-    background-attachment: scroll;
-    
+  background: whitesmoke;
 }
- 
 h1 {
-    color: #FFBD33;
+    color: white;
+    font-weight: bold;
     font-family: 'Russo One', sans-serif;
     text-shadow: 3px 3px 6px red;
     margin-top: 10%;
     opacity: 0.9;
+    margin-bottom: 60px;
    
 }
 h5{
     margin: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Russo One', sans-serif;
+    color: darkblue;
 }
 #btn1{
     background: blue;
@@ -26,6 +26,7 @@ h5{
     height: 40px;
     border-radius: 3px;
     font-size: 15px;
+    font-family: sans-serif;
 }
 #btn2{
     background: gray;
@@ -35,15 +36,18 @@ h5{
     border-radius: 3px;
     height: 40px;
     font-size: 15px;
+    font-family: sans-serif;
+    
 }
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color:#02004e;
+    opacity: 0.9;
     
-
+    
   }
   
   li {
@@ -90,5 +94,3 @@ ul {
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
- 

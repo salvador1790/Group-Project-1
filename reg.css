@@ -1,10 +1,15 @@
+body{
+    background: whitesmoke;
+}
 #avatar{
-    color: #FFBD33;
+    color: white;
     font-family: 'Russo One', sans-serif;
-    text-shadow: 3px 3px 6px red;
+    text-shadow: 2px 2px 5px red;
    text-align: center;
    font-size: 50px;
    margin-top: 40px;
+   
+   
 }
 h1{
     margin-top: 0px;
@@ -14,7 +19,7 @@ h1{
     text-align: center;
 }
 .container {
-    background: black;
+    background:#02004e;
     color: #fff;
     top: 50%;
     left: 50%;
@@ -41,25 +46,22 @@ h1{
     margin-top: 9px;
     margin-bottom: 15px;
 }
-
 .control-label{
  font-size: 19px;
  color: white;
  font-family: sans-serif;
  font-weight: bold;
 }
-
 .help-block{
     font-size: 10px;
     color: white;
     font-family: sans-serif;
 }
-
 #sign-up-btn{
     border: none;
     outline: none;
     height: 40px;
-    background: blue;
+    background: orangered;
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
@@ -67,12 +69,11 @@ h1{
     width:150px;
     text-align: center
     
-
 }
-
 #sign-up-btn:hover{
     cursor: pointer;
-    background: #ffc107;
+    background: #FFBD33;
+    
     color: #000;
     
 }

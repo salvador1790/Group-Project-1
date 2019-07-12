@@ -1,18 +1,18 @@
+//Initialize Firebase
 var firebaseConfig = {
-    apiKey: "AIzaSyDFbOl8hZV-OYRghvyAWlnKvZ5g3MoCyEU",
-    authDomain: "school-reading-logger.firebaseapp.com",
-    databaseURL: "https://school-reading-logger.firebaseio.com",
-    projectId: "school-reading-logger",
+    apiKey: "AIzaSyA4RlrYXgKvMYzZQj8p9Ls9s6YZB9mAfXA",
+    authDomain: "bookshlf-61afa.firebaseapp.com",
+    databaseURL: "https://bookshlf-61afa.firebaseio.com",
+    projectId: "bookshlf-61afa",
     storageBucket: "",
-    messagingSenderId: "96885408361",
-    appId: "1:96885408361:web:35204891ba09be1f"
+    messagingSenderId: "427376747607",
+    appId: "1:427376747607:web:3cd338bd21f19ee8"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
-//Auth and firestore references
-var auth = firebase.auth();
 var database = firebase.database();
+var auth = firebase.auth();
 
 $("#sign-up-btn").on("click", function (event) {
 
@@ -40,16 +40,21 @@ $("#sign-up-btn").on("click", function (event) {
     else {
         auth.createUserWithEmailAndPassword(email, password).then(function () {
             console.log("You have signed up");
-            location.replace("https://www.google.com");
+            location.replace("./index.html");
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode);
             console.log(errorMessage);
-            $("#error-alert").html("The e-mail address is already in use");
-            document.getElementById("error-alert").style.color = "red";
-            document.getElementById("error-alert").style.fontFamily = "sans-serif";
+            if (errorMessage === "The email address is badly formatted.") {
+                $("#error-alert").html("Invalid E-mail");
+            }
+            else {
+                $("#error-alert").html("The E-mail address is already in use");
+                document.getElementById("error-alert").style.color = "red";
+                document.getElementById("error-alert").style.fontFamily = "sans-serif";
+            }
         });
     }
 
