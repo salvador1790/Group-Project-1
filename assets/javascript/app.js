@@ -64,6 +64,7 @@ $("#add-member-btn").on("click", function (event) {
 
 });
 
+//////////////////////Library for Books
 database.ref("allBooks").on("value", function (dbBooks) {
   allBooks = dbBooks.val();
   allBooks.forEach(function (book, i) {
@@ -72,6 +73,7 @@ database.ref("allBooks").on("value", function (dbBooks) {
     var img = $("<img>");
     var div = $("<div>");
     var pDiv = $("<div>");
+    var button = $("<button>")
     var buttonId = 'check-out ' + i;
     console.log(buttonId);
     p.html(book.title);
@@ -79,28 +81,27 @@ database.ref("allBooks").on("value", function (dbBooks) {
     img.attr("class", "bookImg")
     div.attr("class", "cards")
     pDiv.attr("class", "paragraphDiv");
-    // checkOutButton.attr("title", book.title)
-    // checkOutButton.addClass("addBookBtn");
-    // checkOutButton.text("Add Book");
-    // checkOutButton.attr("data-type", buttonIdWithHash);
 
     pDiv.append(p);
     div.append(pDiv);
     div.append(img);
-    // div.append(button);
 
     $(".bookLibrary").append(div);
   });
 });
 
-database.ref("allGames").on("value", function (dbGames) {
+var allGames = [];
+///////////////////////Library for Games
+database.ref("GameLibrary").on("value", function (dbGames) {
   allGames = dbGames.val();
+  console.log(dbGames.val());
   allGames.forEach(function (game, i) {
 
     var p = $("<p>");
     var img = $("<img>");
     var div = $("<div>");
     var pDiv = $("<div>");
+    var button = $("<button>");
     var buttonId = 'check-out ' + i;
     console.log(buttonId);
     p.html(game.title);
@@ -108,53 +109,20 @@ database.ref("allGames").on("value", function (dbGames) {
     img.attr("class", "bookImg")
     div.attr("class", "cards")
     pDiv.attr("class", "paragraphDiv");
+    button.text("Checkout");
+    button.addClass("checkoutGameBtn");
+    $(".gameLibrary").append(div);
     pDiv.append(p);
     div.append(pDiv);
     div.append(img);
+    div.append(button);
 
-    $(".gameLibrary").append(div);
 
   });
+  $(".checkoutGameBtn").on("click" ,function (){
+    console.log(allGames.this);
+  })
 });
-
-
-
-// //Button that adds books to library
-// // Adds to array already in memory.  Overwrites entire array in Firebase
-// $(".addBookBtn").on("click", function (event) {
-//   event.preventDefault();
-
-//   console.log(this);
-//   var title = this.title;
-//   var author = this.getAttribute('author');
-//   var publishDate = this.getAttribute('publishDate');
-//   var imgURL = this.getAttribute('imgURL');
-
-
-//   // Creates local object
-//   var newBook = {
-//     title,
-//     author,
-//     publishDate,
-//     imgURL
-//   };
-//   console.log(newBook);
-
-//   allBooks.push(newBook);
-
-//   // Uploads member data to Firebase
-//   database.ref("allBooks").set(allBooks);
-
-//   alert("Book successfully added");
-
-// });
-
-// $(".check-out").on("click", function () {
-//   event.preventDefault();
-//   console.log("checkout button pushed");
-//   alert("Checkout button clicked");
-
-// });
 
 
 
@@ -252,7 +220,7 @@ function submitGame() {
         event.preventDefault();
 
         console.log(this);
-        var title = this.title;
+        var title = this.getAttribute("title");
         var imgURL = this.getAttribute('imgURL');
 
 
@@ -265,10 +233,10 @@ function submitGame() {
 
         allGames.push(newGame);
 
-        // // Uploads member data to Firebase
-        // database.ref("allGames").set(allGames);
+        // Uploads member data to Firebase
+        database.ref("GameLibrary").set(allGames);
 
-        // alert("Game successfully added");
+        alert("Game successfully added");
 
       });
     }
