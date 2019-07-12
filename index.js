@@ -1,4 +1,5 @@
 //Initialize Firebase
+
 var firebaseConfig = {
     apiKey: "AIzaSyA4RlrYXgKvMYzZQj8p9Ls9s6YZB9mAfXA",
     authDomain: "bookshlf-61afa.firebaseapp.com",
@@ -13,6 +14,15 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 var auth = firebase.auth();
+
+auth.onAuthStateChanged(function (user) {
+    if (user === null) {
+        location.replace("./home.html")
+    }
+    else {
+        
+    }
+});
 
 $("#logout-btn").on("click", function (event) {
     event.preventDefault();
@@ -29,5 +39,3 @@ $("#logout-btn").on("click", function (event) {
         
     });
 });
-
-console.log(firebase.auth().currentUser);
