@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -23,85 +25,82 @@
     <!-- Member Tracker -->
     <div class="container">
 
-            <div class="row" id="NavBar">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #02004e;">
-                            <a class="navbar-brand" href="./index.html">Home</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-        
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="./allBooks.html">Library <span
-                                                class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="./bookAdd.html">Add Book <span
-                                                class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="./profile.html">Add Profile <span
-                                                class="sr-only">(current)</span></a>
-                                    </li>
-        
-                            </div>
-                        </nav>
-        
+        <div class="row" id="NavBar">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #02004e;">
+                    <a class="navbar-brand" href="./index.html">bOOkshlf</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Library
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="./allBooks.html">Books</a>
+                                    <a class="dropdown-item" href="./allGames.html">Games</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./bookAdd.html">Add Book <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./gameAdd.html">Add Game <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./profile.html">Profile <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                        <!-- <a class="nav-link" id="log-out-button" href="./index.html">Log Out <span class="sr-only">(current)</span></a> -->
+                        -->
                     </div>
-                </div>
+                </nav>
+
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
                 <!-- Create Profile  -->
                 <div class="card mb-4">
-                    <div class="card-header">Create Profile</div>
+                    <div class="card-header">Profile</div>
                     <div class="card-body">
 
                         <!-- Entry Form -->
                         <form>
                             <div class="form-group">
                                 <label for="member-name-input">Name</label>
-                                <input class="form-control" id="member-name-input"  type="text">
+                                <input class="form-control" id="member-name-input" type="text">
                             </div>
-                            <div class="form-group">
-                                <label for="member-email-input">Email Address</label>
-                                <input class="form-control" id="member-email-input" 
-                                    type="text">
-                            </div>
-                            <div class="form-group">
-                                    <label for="member-password-input">Enter New Password</label>
-                                    <input class="form-control" id="member-password-input" 
-                                        type="text">
-                                </div>
                             <div class="form-group">
                                 <label for="member-phone-input">Phone Number</label>
-                                <input class="form-control" id="member-phone-input" 
-                                    type="text">
+                                <input class="form-control" id="member-phone-input" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="member-street-input">Street Address</label>
-                                <input class="form-control" id="member-street-input" 
-                                    type="text">
+                                <input class="form-control" id="member-street-input" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="member-city-input">City</label>
-                                <input class="form-control" id="member-city-input" 
-                                    type="text">
+                                <input class="form-control" id="member-city-input" type="text">
                             </div>
                             <div class="form-group">
-                                    <label for="member-state-input">State</label>
-                                    <input class="form-control" id="member-state-input" 
-                                        type="text">
-                                </div>
-                                <div class="form-group">
-                                        <label for="member-zip-input">Zip Code</label>
-                                        <input class="form-control" id="member-zip-input" 
-                                            type="text">
-                                    </div>
+                                <label for="member-state-input">State</label>
+                                <input class="form-control" id="member-state-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="member-zip-input">Zip Code</label>
+                                <input class="form-control" id="member-zip-input" type="text">
+                            </div>
 
                             <button class="btn btn-primary float-right" id="add-member-btn">Save Profile</button>
                         </form>
@@ -114,4 +113,5 @@
 </body>
 
 <script src="./assets/javascript/app.js"></script>
+
 </html>
