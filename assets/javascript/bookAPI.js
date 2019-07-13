@@ -33,10 +33,12 @@ database.ref("BookLibrary").on("value", function (dbBooks) {
       img.attr("class", "bookImg")
       div.attr("class", "cards")
       pDiv.attr("class", "paragraphDiv");
-  
+      button.text("Checkout");
+      button.addClass("checkoutBtn");
       pDiv.append(p);
       div.append(pDiv);
       div.append(img);
+      div.append(button);
   
       $(".bookLibrary").append(div);
     });
